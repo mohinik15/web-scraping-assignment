@@ -1,0 +1,45 @@
+#display all header files
+
+from urllib.request import urlopen
+from bs4 import beautifulsoup
+html=urlopen('https://en.wikipedia.org/wiki/main_page')
+bs= beautifulsoup(html, "html.parser")
+titles = bs.find_all(['h1','h2','h3','h4','h5','h6'])
+print('list all the header tags :', *titles, sep='\n\n')
+
+
+
+
+
+#display IMDB top rated movies
+
+from bs4 import beautifulsoup
+import requests 
+import re
+
+#download IMDB top 100 data
+url= 'http://www.imdb.com/chart/top'
+response = requests.get(url)
+soup = beautifulsoup(response.text,'lxml')
+
+movies = soup.select('td.titlecolumn')
+ratings = [b.attrs.get('data-value,) for b in soup.select('td.postercolumn strong')]
+
+
+
+
+
+#display cricket rankings
+
+first_data=soup.find("div",attrs={"data-cricket-scope":"odi"}).find("div",class_="rankings-other_data=soup.find("div",attrs=final_{"data-cricket-scope":"}).find_all("tr",class_="table))
+
+final_list=[]
+final_lst.append(first_data)
+
+
+#for i in data:
+     split_lst= i.get_text(strip=true,separator=" ").split(" ")
+     final_lst.append(split_lst)
+
+
+
